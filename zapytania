@@ -16,8 +16,30 @@ where zamowienia.status="wyslano";
 5. SELECT * from zamowienia where data BETWEEN "2021-08-01" and "2021-09-30";
 6. SELECT * from klienci where nazwisko like "Brodka";
 7. SELECT * from ksiazki where tytul like "%php%" or tytul like "%frontend%";
-
+12. SELECT tytul, imieautora,nazwiskoautora, miejscowosc from klienci join zamowienia on klienci.idklienta=zamowienia.idklienta join ksiazki on zamowienia.idksiazki=ksiazki.idksiazki where klienci.miejscowosc="Katowice";
 
 -natural joina uzywamy tylko wtedy jak klucz glowny i obcy tak samo sie nazywa w tabelach, czyli kiedy klucze nazywaja sie dokladnie tak samo-
 
 18. select tytul, MIN(cena) from ksiazki where(1); - najtansza ksiazka
+
+tabela łącznikowa - nie musi mieć id, łączy inne klucze
+
+
+23. update ksiazki 
+SET ksiazki.cena = ksiazki.cena * 1.15
+WHERE
+ksiazki.tytul
+like "%PHP%";
+
+update ksiazki 
+SET ksiazki.cena = round(ksiazki.cena * 1.15, 2)
+WHERE
+ksiazki.tytul
+like "%PHP%";
+
+25. alter table klienci 
+add email varchar(255);
+
+15.	Wyświetl wszystkie informacje o zamówieniach dokonanych przez klienta o nazwisku „Jankowska” ułożone wg daty od najpóźniej dokonanych (imię i nazwisko osoby zamawiającej, id, data i status zamówienia, tytuł zamówionej książki).
+
+
