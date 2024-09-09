@@ -1,0 +1,23 @@
+1. SELECT * from ksiazki order by ksiazki.nazwiskoautora; - wszystkie info z ksiazek wg nazwiska autora
+2. SELECT imieautora, nazwiskoautora, tytul, cena FROM `ksiazki` ORDER by cena desc; - wszystko oprocz id malejaco wg ceny
+3. SELECT idksiazki as `ID książki`, imieautora as `Imię autora`, nazwiskoautora as `Nazwisko autora`, tytul as `tytuł książki`, cena as `Cena` FROM `ksiazki`;
+4. SELECT * from zamowienia where status like "wyslano";
+
+lub
+
+4. select zamowienia.idzamowienia, zamowienia.data, 
+klienci.imie, klienci.nazwisko,
+ksiazki.tytul
+from zamowienia join klienci
+on zamowienia.idklienta=klienci.idklienta
+join ksiazki on zamowienia.idksiazki=ksiazki.idksiazki  
+where zamowienia.status="wyslano";
+
+5. SELECT * from zamowienia where data BETWEEN "2021-08-01" and "2021-09-30";
+6. SELECT * from klienci where nazwisko like "Brodka";
+7. SELECT * from ksiazki where tytul like "%php%" or tytul like "%frontend%";
+
+
+-natural joina uzywamy tylko wtedy jak klucz glowny i obcy tak samo sie nazywa w tabelach, czyli kiedy klucze nazywaja sie dokladnie tak samo-
+
+18. select tytul, MIN(cena) from ksiazki where(1); - najtansza ksiazka
