@@ -43,7 +43,36 @@ add email varchar(255);
 15.	Wyświetl wszystkie informacje o zamówieniach dokonanych przez klienta o nazwisku „Jankowska” ułożone wg daty od najpóźniej dokonanych (imię i nazwisko osoby zamawiającej, id, data i status zamówienia, tytuł zamówionej książki).
 
 27.   Usuń z bazy Andrzeja D
-delete "Andrzej D." from database
+delete "Andrzej D." from database (?)
 
 
 
+13. Wyświetl wszystkie informacje o zamówieniach dokonanych przez wszystkich klientów (imię i nazwisko osoby zamawiającej, id, data i status zamówienia, tytuł zamówionej książki).
+SELECT zamowienia.status, zamowienia.data, ksiazki.tytul, klienci.imie, klienci.nazwisko, klienci.idklienta from zamowienia join klienci on klienci.idklienta=zamowienia.idklienta join ksiazki on ksiazki.idksiazki=zamowienia.idksiazki;
+
+14. select klienci.imie, klienci.nazwisko, klienci.idklienta, zamowienia.data, zamowienia.status, ksiazki.tytul from klienci join zamowienia on zamowienia.idklienta=klienci.idklienta join ksiazki on ksiazki.idksiazki=zamowienia.idksiazki WHERE klienci.nazwisko like "Rutkowski" or klienci.nazwisko like "Brodka";
+16. select AVG(ksiazki.cena) from ksiazki;
+17. 
+
+
+
+19. select klienci.imie, klienci.nazwisko from klienci where klienci.idklienta IN (select zamowienia.idklienta from zamowienia GROUP BY idklienta HAVING count(zamowienia.idklienta)=1);
+
+21. select klienci.imie, klienci.nazwisko 
+from klienci 
+left join zamowienia on klienci.idklienta=zamowienia.idklienta
+where zamowienia.idzamowienia is NULL;
+
+lub 
+
+select klienci.imie, klienci.nazwisko
+from klienci WHERE klienci.idklienta not IN(
+    SELECT zamowienia.idklienta from zamowienia
+    );
+
+
+17. select klienci.imie, klienci.nazwisko, COUNT(zamowienia.idklienta) from klienci
+join zamowienia on zamowienia.idklienta=klienci.idklienta group by klienci.imie, klienci.nazwisko;
+
+
+24. UPDATE zamowienia set zamowienia.status="wysłano" where year(zamowienia.data)=2021;
