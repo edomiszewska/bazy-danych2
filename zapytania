@@ -42,4 +42,8 @@ add email varchar(255);
 
 15.	Wyświetl wszystkie informacje o zamówieniach dokonanych przez klienta o nazwisku „Jankowska” ułożone wg daty od najpóźniej dokonanych (imię i nazwisko osoby zamawiającej, id, data i status zamówienia, tytuł zamówionej książki).
 
+27.   Usuń z bazy Andrzeja D
+delete "Andrzej D." from database
+
+
 
