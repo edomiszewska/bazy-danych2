@@ -76,3 +76,17 @@ join zamowienia on zamowienia.idklienta=klienci.idklienta group by klienci.imie,
 
 
 24. UPDATE zamowienia set zamowienia.status="wysłano" where year(zamowienia.data)=2021;
+
+
+27. delete from klienci where klienci.imie like "Andrzej" and klienci.nazwisko like "D%";
+
+
+20. SELECT  klienci.imie, klienci.nazwisko, 
+COUNT(zamowienia.idklienta)
+from klienci join zamowienia
+on klienci.idklienta=zamowienia.idklienta
+GROUP BY klienci.imie, klienci.nazwisko
+HAVING COUNT(zamowienia.idklienta)>1;
+
+26 . INSERT into klienci(idklienta,imie, nazwisko, miejscowosc, email) VALUES(13,"Andzelika", "Mucha", "Bojków","lala" );
+
