@@ -1,0 +1,24 @@
+co znaczy ze baza danych jest relacyjna?
+sa dane zapisywane w tabelach i sa powiązania miedzy nimi.
+
+po co sa te relacje?
+  -szybkie wyszukiwanie,
+  -latwiej rozbudowac baze (skalowalnosc),
+  -ilosc danych (wiecej miejsca).
+
+integralnosc bazy danych
+
+    on delete set null o update cascade
+    - ustawianie wartosci null w rekordzie
+
+
+    - null
+    - cascade
+    - no action
+    - restrict 
+    jakbysmy nic nie zapisali zadzialalo by jak no action i restrict.
+
+    jak ustawimy cascade - usuwamy caly rekord (cale poziomo usuwa).
+
+
+    update gatunek set id_gatunek=10 where id_gatunek=3; 
